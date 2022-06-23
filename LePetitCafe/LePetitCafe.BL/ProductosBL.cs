@@ -11,7 +11,6 @@ namespace LePetitCafe.BL
         Contexto _contexto;
         public List<Producto> ListadeProductos { get; set; }
 
-
         public ProductosBL()
         {
             _contexto = new Contexto();
@@ -20,7 +19,10 @@ namespace LePetitCafe.BL
 
         public List<Producto> ObtenerProductos()
         {
-            ListadeProductos = _contexto.Productos.ToList();
+            ListadeProductos = _contexto.Productos
+                .Include("Categoria")
+                .ToList();
+
            return ListadeProductos;
         }
 
