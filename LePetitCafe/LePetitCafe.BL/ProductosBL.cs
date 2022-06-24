@@ -34,8 +34,11 @@ namespace LePetitCafe.BL
             } else
             {
                 var productoExistente = _contexto.Productos.Find(producto.Id);
+
                 productoExistente.Descripcion = producto.Descripcion;
-                productoExistente.Precio = producto.Precio; 
+                productoExistente.CategoriaId = producto.CategoriaId;
+                productoExistente.Precio = producto.Precio;
+                productoExistente.UrlImagen = producto.UrlImagen;
             }
            
             _contexto.SaveChanges();
@@ -43,7 +46,8 @@ namespace LePetitCafe.BL
 
         public Producto ObtenerProducto(int id)
         {
-            var producto = _contexto.Productos.Find(id);
+            var producto = _contexto.Productos
+                .Include("Categoria").FirstOrDefault(p => p.Id == id );
 
             return producto;
         }
