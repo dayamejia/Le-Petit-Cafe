@@ -59,5 +59,10 @@ namespace LePetitCafe.BL
             _contexto.Productos.Remove(producto);
             _contexto.SaveChanges();
         }
+
+        public object ObtenerProductosActivos()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
