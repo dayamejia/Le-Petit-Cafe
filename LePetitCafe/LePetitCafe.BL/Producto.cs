@@ -33,10 +33,5 @@ namespace LePetitCafe.BL
         public string UrlImagen { get; set; }
 
         public bool Activo { get; set; }
-
-        internal object Include(string v)
-        {
-            throw new NotImplementedException();
-        }
     }
 }
