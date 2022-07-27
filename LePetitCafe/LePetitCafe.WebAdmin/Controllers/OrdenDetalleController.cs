@@ -7,6 +7,7 @@ using System.Web.Mvc;
 
 namespace LePetitCafe.WebAdmin.Controllers
 {
+    [Authorize]
     public class OrdenDetalleController : Controller
     {
 
